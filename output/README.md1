@@ -1,0 +1,12 @@
+# Analysis Results
+
+This folder contains the results of the Week 2 Data Visualization and Storytelling project.
+
+The output files include:
+- Missing values analysis
+- Summary statistics
+- Category analysis
+- Price analysis
+- Rating analysis
+
+These results should be generated from the selected dataset using Python.
