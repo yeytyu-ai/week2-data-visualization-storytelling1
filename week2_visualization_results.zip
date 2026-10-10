@@ -1,0 +1,10 @@
+import shutil
+
+# Create a ZIP file containing all project outputs
+shutil.make_archive(
+    "/content/week2_visualization_results",
+    "zip",
+    "/content"
+)
+
+print("ZIP file created successfully!")
