@@ -1,0 +1,32 @@
+# Week 2: Data Visualization and Storytelling
+
+## Project Overview
+This project focuses on analyzing beauty and wellness data using Python. The aim is to create meaningful visualizations and communicate useful business insights through data storytelling.
+
+## Objectives
+- Explore beauty and wellness data.
+- Identify important trends and patterns.
+- Create bar charts, histograms, and heatmaps.
+- Interpret the visualizations.
+- Present findings in a clear and understandable way.
+
+## Tools and Technologies
+- Python
+- Pandas
+- Matplotlib
+- Seaborn
+- Google Colab
+
+## Project Workflow
+1. Select a dataset.
+2. Clean and prepare the data.
+3. Perform exploratory data analysis.
+4. Create visualizations.
+5. Interpret the results.
+6. Prepare the final Word report.
+
+## Expected Deliverables
+- Python source code
+- Data visualizations
+- Analysis and business insights
+- Final Word report
