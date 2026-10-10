@@ -1,0 +1,32 @@
+# WEEK 2 PROJECT SUMMARY
+
+import pandas as pd
+
+summary = {
+    "Metric": [
+        "Total Products",
+        "Average Price",
+        "Median Price",
+        "Average Rating",
+        "Highest Price",
+        "Lowest Price"
+    ],
+    "Value": [
+        len(df),
+        round(df["price"].mean(), 2),
+        round(df["price"].median(), 2),
+        round(df["rating"].mean(), 2),
+        round(df["price"].max(), 2),
+        round(df["price"].min(), 2)
+    ]
+}
+
+summary_df = pd.DataFrame(summary)
+
+summary_df.to_csv(
+    "output/project_summary.csv",
+    index=False
+)
+
+print(summary_df)
+print("\nProject summary saved successfully!")
