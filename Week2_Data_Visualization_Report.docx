@@ -1,0 +1,73 @@
+from docx import Document
+from docx.shared import Inches
+import os
+
+# Create Word report
+doc = Document()
+
+doc.add_heading(
+    "Week 2: Data Visualization and Storytelling",
+    0
+)
+
+doc.add_paragraph(
+    "Project: Beauty and Wellness Data Analysis"
+)
+
+doc.add_heading("1. Introduction", level=1)
+doc.add_paragraph(
+    "Data visualization helps transform raw data into charts "
+    "that are easy to understand. This project explores beauty "
+    "and wellness product information using Python."
+)
+
+doc.add_heading("2. Objectives", level=1)
+for item in [
+    "Explore beauty product data.",
+    "Compare product categories.",
+    "Understand price and rating distributions.",
+    "Create charts using Python.",
+    "Communicate findings through data storytelling."
+]:
+    doc.add_paragraph(item, style="List Bullet")
+
+doc.add_heading("3. Tools and Technologies", level=1)
+doc.add_paragraph(
+    "Python, Pandas, Matplotlib, Seaborn, and Google Colab."
+)
+
+doc.add_heading("4. Dataset Description", level=1)
+doc.add_paragraph(
+    "This report uses a simulated sample beauty-products dataset "
+    "containing product names, categories, prices, ratings, "
+    "and review counts. The results describe only this sample "
+    "and should not be treated as real market findings."
+)
+
+doc.add_heading("5. Methodology", level=1)
+doc.add_paragraph(
+    "The dataset was loaded into a Pandas DataFrame. Descriptive "
+    "statistics were calculated. Bar charts, a price histogram, "
+    "a price-versus-rating scatter plot, and a correlation "
+    "heatmap were created using Seaborn and Matplotlib."
+)
+
+doc.add_heading("6. Visualizations", level=1)
+
+plots = [
+    ("plots/category_bar_chart.png",
+     "Figure 1: Beauty products by category."),
+    ("plots/price_histogram.png",
+     "Figure 2: Distribution of product prices."),
+    ("plots/category_rating.png",
+     "Figure 3: Average rating by category."),
+    ("plots/price_rating_scatter.png",
+     "Figure 4: Relationship between price and rating."),
+    ("plots/correlation_heatmap.png",
+     "Figure 5: Correlations between numerical features.")
+]
+
+for image_path, caption in plots:
+    if os.path.exists(image_path):
+        doc.add_paragraph(caption)
+        doc.add_picture(image_path, width=In
