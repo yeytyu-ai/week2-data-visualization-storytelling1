@@ -1,0 +1,101 @@
+# WEEK 2: DATA VISUALIZATION AND STORYTELLING
+# Beauty and Wellness Products Analysis
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
+
+# Create folders
+os.makedirs("plots", exist_ok=True)
+os.makedirs("output", exist_ok=True)
+
+# Create a sample beauty products dataset
+# NOTE: This is simulated sample data, not real market data.
+data = {
+    "product_name": [
+        "Face Cream", "Vitamin C Serum", "Lipstick",
+        "Face Cleanser", "Mascara", "Sunscreen",
+        "Shampoo", "Hair Mask", "Body Lotion", "Face Toner",
+        "Night Cream", "Lip Balm", "Face Wash", "Conditioner",
+        "Moisturizer"
+    ],
+    "category": [
+        "Skincare", "Skincare", "Makeup",
+        "Skincare", "Makeup", "Skincare",
+        "Haircare", "Haircare", "Bodycare", "Skincare",
+        "Skincare", "Makeup", "Skincare", "Haircare",
+        "Skincare"
+    ],
+    "price": [
+        25.99, 19.99, 12.50, 15.00, 10.99,
+        18.75, 14.99, 21.50, 11.99, 16.25,
+        29.99, 5.99, 13.50, 17.99, 22.00
+    ],
+    "rating": [
+        4.5, 4.2, 4.0, 4.3, 4.1,
+        4.6, 4.0, 4.4, 4.2, 4.3,
+        4.7, 3.9, 4.1, 4.2, 4.5
+    ],
+    "reviews": [
+        120, 95, 80, 110, 70,
+        150, 65, 90, 55, 75,
+        180, 40, 85, 60, 130
+    ]
+}
+
+df = pd.DataFrame(data)
+
+# Display dataset
+print("BEAUTY PRODUCTS DATASET")
+print(df.head())
+
+print("\nDataset shape:", df.shape)
+
+print("\nSummary statistics:")
+print(df.describe())
+
+# Save dataset
+df.to_csv("output/beauty_products.csv", index=False)
+
+# Save summary statistics
+df.describe().to_csv("output/summary_statistics.csv")
+
+# 1. BAR CHART: Product count by category
+plt.figure(figsize=(8, 5))
+sns.countplot(data=df, x="category")
+plt.title("Beauty Products by Category")
+plt.xlabel("Product Category")
+plt.ylabel("Number of Products")
+plt.xticks(rotation=30)
+plt.tight_layout()
+plt.savefig("plots/category_bar_chart.png")
+plt.show()
+
+# 2. HISTOGRAM: Price distribution
+plt.figure(figsize=(8, 5))
+sns.histplot(data=df, x="price", bins=6, kde=True)
+plt.title("Beauty Product Price Distribution")
+plt.xlabel("Price")
+plt.ylabel("Number of Products")
+plt.tight_layout()
+plt.savefig("plots/price_histogram.png")
+plt.show()
+
+# 3. BAR CHART: Average rating by category
+plt.figure(figsize=(8, 5))
+sns.barplot(data=df, x="category", y="rating", errorbar=None)
+plt.title("Average Rating by Category")
+plt.xlabel("Product Category")
+plt.ylabel("Average Rating")
+plt.xticks(rotation=30)
+plt.tight_layout()
+plt.savefig("plots/category_rating.png")
+plt.show()
+
+# 4. SCATTER PLOT: Price vs rating
+plt.figure(figsize=(8, 5))
+sns.scatterplot(data=df, x="price", y="rating", hue="category")
+plt.title("Relationship Between Price and Rating")
+plt.xlabel("Price")
+plt.ylabel("Rating")
